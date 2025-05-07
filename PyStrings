@@ -1,0 +1,67 @@
+# Step 1: Store the text in a variable
+text = """ In an age of constant stimulation, where our phones buzz with every notification and streaming platforms beg for our attention, boredom has become something of a modern taboo. We treat it like an enemy to be eliminated rather than a state to be explored. But boredom, when allowed to breathe, has an unexpected power. It clears space. It invites reflection. And it might just be one of the most underrated catalysts for creativity, self-discovery, and peace of mind.
+
+At its core, boredom is the mind’s cry for novelty or meaning. When we experience boredom, we are not merely idle. We are yearning. That yearning can be uncomfortable, especially for people used to constant distraction. But it is in that discomfort that something remarkable happens: the brain begins to stretch. Neuroscientists have found that during boredom, the brain’s "default mode network" becomes active, the same system used for daydreaming, memory recall, and imagination. This is why some of our best ideas come when we are in the shower, out on a walk, or sitting quietly with nothing to do. Boredom creates a vacuum, and the mind rushes to fill it with ideas.
+
+Artists, writers, and thinkers have long known this. Virginia Woolf once said that solitude was essential to creative work. Isaac Newton developed his theory of gravity while isolated during the Great Plague. And countless authors have credited long, quiet walks for unlocking story ideas or poetic insights. These moments of stillness and nothingness allowed their minds to wander, a process that is increasingly rare in today’s hyperconnected world.
+
+But boredom is not just good for artists. It is good for everyone. It encourages us to confront ourselves without distractions. In those empty moments, we reflect on our goals, our values, and the deeper questions of life. It is no surprise that people often have major epiphanies during long car rides, quiet nights, or even while staring at the ceiling. When we stop cramming our time with content, we make room for clarity.
+
+There is also a subtle mental toughness that comes from sitting with boredom. It builds patience. It trains us to endure stillness without seeking escape. This is a useful skill not just for mindfulness or meditation, but for life in general. Being able to stay calm when things are not exciting, or when we feel restless, helps us manage stress, improve focus, and reduce anxiety.
+
+That said, boredom is not always pleasant and it is not meant to be. It is a signal, not a destination. Chronic boredom can be a sign of deeper issues like depression or lack of fulfillment. But occasional boredom is healthy, even essential. We should not aim to eliminate it entirely, but rather to understand and work with it. Not every moment needs to be productive or entertaining. Some moments are simply meant to be experienced, quietly and without distraction.
+
+So next time you feel bored, resist the urge to immediately reach for your phone. Instead, pause. Let your thoughts wander. Let your mind roam freely, without agenda. It might be uncomfortable at first. But on the other side of that discomfort, you may find something surprising: a new idea, a forgotten memory, a buried dream, or even just a moment of peace.
+
+In a world that prizes constant engagement, boredom is a quiet rebellion. It asks nothing of us but to sit, to think, and to be. And in doing so, it gives us something we rarely find in the noise. It gives us ourselves."""
+
+print(f"{text}\n")
+
+import re
+
+# Step 2: Count how many times the letter 'e' takes place
+e_count = text.count('e')
+print(f"\nThe letter 'e' has showed up {e_count} times")
+
+# Step 3: Count how many times the letter 'b' shows up
+b_count = text.count('b')
+print(f"\nThe letter b has shown up {b_count} times")
+
+# Step 4: Print the first 20 characters after the first 'e'
+first_e = text.find('e')
+print("\nFirst 20 characters after the first 'e':")
+for i in range (1,21):
+    print(text[first_e + i], end='')
+
+
+
+# Step 5: Count how many words are in the text
+words = text.split()
+word_count = len(words)
+print(f"\n\nTotal words: {word_count}")
+
+# Step 6: Count how many sentences are in the text
+sentences = re.split(r'[.!?]', text)
+sentences = [s.strip() for s in sentences if s.strip()]
+sentence_count = len(sentences)
+print(f"\nTotal sentences: {sentence_count}")
+
+# Step 7: Find the shortest sentence
+shortest_sentence = min(sentences, key=len)
+print(f"\nThe shortest sentence is: \n{shortest_sentence}")
+
+# Step 8: Count how many unique words are in the text
+text = text.lower()
+punctuation = ".?!,;:\"'()[]{}"
+for char in punctuation:
+    text = text.replace(char, "")
+    unique_words = set(words)
+print(f"\nThere are {len(unique_words)} unique words in the text")
+
+# Step 9: Capitalize every h in the text
+text = text.replace('h', 'H')
+words = text.split()
+H_words = [word for word in words if 'H' in word]
+hWord_count = text.count('H')
+print(f"\nThere are {hWord_count} H's in the text")
+print(', '.join(H_words))
